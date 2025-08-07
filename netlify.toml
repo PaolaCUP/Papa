@@ -1,7 +1,7 @@
 [build]
   base = "landing-react"
   command = "npm run build"
-  publish = "landing-react/build"
+  publish = "build"
 
 [build.environment]
   NODE_VERSION = "18"
