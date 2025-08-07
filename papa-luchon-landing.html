@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Papá Luchón | Pre-registro</title>
+  <meta name="description" content="Plataforma para hombres en proceso de paternidad. Comunidad, mentoría y herramientas prácticas. ¡Pre-regístrate!">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --azul-marino: #1B365D;
+      --verde-bosque: #2D5A27;
+      --naranja-calido: #E07A5F;
+      --gris-carbon: #3D4142;
+      --blanco-hueso: #F8F6F0;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--blanco-hueso);
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: var(--azul-marino);
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .hero {
+      background: linear-gradient(120deg, var(--azul-marino) 80%, var(--verde-bosque) 100%);
+      color: var(--blanco-hueso);
+      text-align: center;
+      padding: 3rem 1rem 2rem 1rem;
+      border-radius: 0 0 24px 24px;
+    }
+    .logo {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--naranja-calido);
+      margin-bottom: 1.2rem;
+      letter-spacing: 1px;
+    }
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .hero h2 {
+      font-size: 1.15rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+    }
+    .hero-form {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      max-width: 400px;
+      margin: 0 auto 2.2rem auto;
+    }
+    .hero-form input[type="email"] {
+      flex: 1;
+      padding: 0.7rem 1rem;
+      border: none;
+      border-radius: 6px 0 0 6px;
+      font-size: 1rem;
+      outline: none;
+    }
+    .hero-form button {
+      background: var(--naranja-calido);
+      color: #fff;
+      border: none;
+      border-radius: 0 6px 6px 0;
+      padding: 0 1.3rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .hero-form button:hover {
+      background: var(--verde-bosque);
+    }
+    .mockup {
+      width: 210px;
+      height: 210px;
+      margin: 2rem auto 0 auto;
+      background: var(--gris-carbon);
+      border-radius: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.2rem;
+      opacity: 0.08;
+    }
+    .ventajas-section {
+      background: #fff;
+      color: var(--azul-marino);
+      border-radius: 18px;
+      box-shadow: 0 2px 16px 0 #1b365d18;
+      margin-top: -2rem;
+      margin-bottom: 2.5rem;
+      padding: 2.5rem 1.5rem;
+    }
+    .ventajas-section h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .ventajas-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .ventaja-item {
+      background: var(--blanco-hueso);
+      border-radius: 12px;
+      padding: 1.2rem 1rem;
+      width: 210px;
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 1px 8px 0 #1b365d10;
+    }
+    .ventaja-icon {
+      font-size: 2.3rem;
+      margin-bottom: 0.7rem;
+      color: var(--verde-bosque);
+    }
+    .ventaja-item h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .ventaja-item p {
+      font-size: 0.98rem;
+      text-align: center;
+    }
+    .faq-section {
+      background: var(--blanco-hueso);
+      color: var(--azul-marino);
+      border-radius: 18px;
+      box-shadow: 0 2px 16px 0 #1b365d10;
+      margin-bottom: 2.5rem;
+      padding: 2.5rem 1.5rem;
+    }
+    .faq-section h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 1.7rem;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.1rem 1rem 0.7rem 1rem;
+      box-shadow: 0 1px 8px 0 #1b365d08;
+    }
+    .faq-item strong {
+      color: var(--verde-bosque);
+      font-size: 1rem;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .faq-item p {
+      font-size: 0.97rem;
+      margin: 0;
+    }
+    .footer {
+      background: var(--gris-carbon);
+      color: var(--blanco-hueso);
+      padding: 2rem 1.5rem 1rem 1.5rem;
+      text-align: center;
+      border-radius: 18px 18px 0 0;
+      margin-top: 2rem;
+    }
+    .footer-cta {
+      margin-bottom: 1.2rem;
+    }
+    .footer-btn {
+      background: var(--naranja-calido);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 0.7rem 1.6rem;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-top: 0.7rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .footer-btn:hover {
+      background: var(--verde-bosque);
+    }
+    .footer-disclaimer {
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+    @media (max-width: 700px) {
+      .ventajas-list {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .ventaja-item {
+        width: 100%;
+        min-height: auto;
+      }
+    }
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 1.3rem;
+      }
+      .hero h2 {
+        font-size: 1rem;
+      }
+      .mockup {
+        width: 120px;
+        height: 120px;
+      }
+      .container {
+        padding: 0 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="logo">Papá Luchón</div>
+    <h1>Prepárate para ser el papá que siempre quisiste tener</h1>
+    <h2>Papá Luchón es la primera comunidad en México pensada para hombres como tú: presentes, conscientes y listos para crecer junto a sus hijos.</h2>
+    <form class="hero-form" onsubmit="event.preventDefault(); this.querySelector('button').innerText='¡Gracias!'; this.querySelector('input').disabled=true; this.querySelector('button').disabled=true;">
+      <input type="email" placeholder="Tu correo electrónico" required />
+      <button type="submit">Quiero enterarme</button>
+    </form>
+    <div class="mockup">[Mockup / Ilustración]</div>
+  </div>
+  <div class="container">
+    <section class="ventajas-section">
+      <h3>¿Por qué unirte a Papá Luchón?</h3>
+      <div class="ventajas-list">
+        <div class="ventaja-item">
+          <span class="ventaja-icon">🧠</span>
+          <h4>Preparación emocional real</h4>
+          <p>Aprende a manejar tus miedos y expectativas con apoyo profesional y de otros papás.</p>
+        </div>
+        <div class="ventaja-item">
+          <span class="ventaja-icon">🤝</span>
+          <h4>Comunidad masculina auténtica</h4>
+          <p>Comparte dudas y experiencias en un espacio seguro, solo para hombres.</p>
+        </div>
+        <div class="ventaja-item">
+          <span class="ventaja-icon">🛠️</span>
+          <h4>Herramientas prácticas</h4>
+          <p>Descubre consejos y recursos útiles para cada etapa de la paternidad.</p>
+        </div>
+        <div class="ventaja-item">
+          <span class="ventaja-icon">🌳</span>
+          <h4>Inspiración mexicana</h4>
+          <p>Contenido adaptado a nuestra cultura y realidad.</p>
+        </div>
+      </div>
+    </section>
+    <section class="faq-section">
+      <h3>Preguntas frecuentes</h3>
+      <div class="faq-list">
+        <div class="faq-item">
+          <strong>¿Papá Luchón es solo para papás primerizos?</strong>
+          <p>No, es para cualquier hombre en proceso de paternidad: buscando bebé, esperando, o con hijos pequeños.</p>
+        </div>
+        <div class="faq-item">
+          <strong>¿Tengo que pagar algo por registrarme?</strong>
+          <p>El pre-registro es totalmente gratis. Te avisaremos antes del lanzamiento.</p>
+        </div>
+        <div class="faq-item">
+          <strong>¿Qué tipo de contenido encontraré?</strong>
+          <p>Desde artículos y videos hasta mentorías y foros, todo enfocado en prepararte para ser un mejor papá.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer class="footer">
+    <div class="footer-cta">
+      <span>Da el primer paso para ser el papá que tu hijo recordará.</span><br>
+      <button class="footer-btn" onclick="document.querySelector('.hero-form input').focus();">Quiero enterarme</button>
+    </div>
+    <div class="footer-disclaimer">
+      <small>No compartiremos tu correo con nadie. © 2025 Papá Luchón</small>
+    </div>
+  </footer>
+</body>
+</html>

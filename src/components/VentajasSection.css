@@ -1,0 +1,56 @@
+.ventajas-section {
+  background: #fff;
+  color: #1B365D;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px 0 #1b365d18;
+  margin-top: -2rem;
+  margin-bottom: 2.5rem;
+}
+.ventajas-section h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.ventajas-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.ventaja-item {
+  background: #F8F6F0;
+  border-radius: 12px;
+  padding: 1.2rem 1rem;
+  width: 210px;
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 1px 8px 0 #1b365d10;
+}
+.ventaja-icon {
+  font-size: 2.3rem;
+  margin-bottom: 0.7rem;
+  color: #2D5A27;
+}
+.ventaja-item h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.ventaja-item p {
+  font-size: 0.98rem;
+  text-align: center;
+}
+@media (max-width: 700px) {
+  .ventajas-list {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .ventaja-item {
+    width: 100%;
+    min-height: auto;
+  }
+}

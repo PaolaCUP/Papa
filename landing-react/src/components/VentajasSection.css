@@ -1,0 +1,73 @@
+.ventajas-section {
+  background: linear-gradient(135deg, #F8F6F0 0%, #e5e7eb 100%);
+  color: #1B365D;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px 0 #1B365D33;
+  margin-top: -2rem;
+  margin-bottom: 2.5rem;
+  padding: 2.5rem 1.5rem;
+  font-family: 'Montserrat', 'Oswald', Arial, sans-serif;
+  animation: fadeInUp 1.2s cubic-bezier(.4,0,.2,1) both;
+}
+.ventajas-section h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.ventajas-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.ventaja-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.2rem 1rem;
+  width: 210px;
+  min-height: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 6px 32px 0 #1b365d22;
+  font-family: 'Montserrat', 'Oswald', Arial, sans-serif;
+  font-weight: 700;
+  animation: fadeInUp 1.1s cubic-bezier(.4,0,.2,1) both;
+  transition: box-shadow 0.25s, transform 0.25s;
+}
+.ventaja-item:hover {
+  box-shadow: 0 16px 48px 0 #1B365D44, 0 4px 32px 0 #EB6D1E33;
+  transform: translateY(-8px) scale(1.04);
+}
+.ventaja-icon svg {
+  transition: transform 0.25s cubic-bezier(.4,0,.2,1);
+}
+.ventaja-item:hover .ventaja-icon svg {
+  transform: scale(1.18) rotate(-8deg);
+}
+.ventaja-icon {
+  font-size: 2.3rem;
+  margin-bottom: 0.7rem;
+  color: #2D5A27;
+}
+.ventaja-item h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.ventaja-item p {
+  font-size: 0.98rem;
+  text-align: center;
+}
+@media (max-width: 700px) {
+  .ventajas-list {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .ventaja-item {
+    width: 100%;
+    min-height: auto;
+  }
+}

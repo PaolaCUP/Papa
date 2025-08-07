@@ -1,0 +1,130 @@
+/* GLOBAL DESIGN TOKENS & RESET FOR PAPÁ LUCHÓN */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --primary-blue: #1B365D;
+  --cta-orange: #EB6D1E;
+  --bg-cream: #F8F6F0;
+  --dark-text: #1a1a1a;
+  --light-text: #6b7280;
+  --white: #ffffff;
+  --subtle-gradient: linear-gradient(135deg, #1B365D 0%, #2563eb 100%);
+
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+}
+
+html, body {
+  font-family: var(--font-primary);
+  background: var(--bg-cream);
+  color: var(--dark-text);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.btn-primary {
+  background: var(--cta-orange);
+  color: var(--white);
+  border-radius: 12px;
+  padding: 16px 32px;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  box-shadow: 0 4px 16px 0 #eb6d1e22;
+  border: none;
+}
+.btn-primary:hover, .btn-primary:focus {
+  background: #d95d0d;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(235, 109, 30, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary-blue);
+  border: 2px solid var(--primary-blue);
+  border-radius: 12px;
+  padding: 14px 28px;
+  font-size: var(--text-base);
+  font-weight: 600;
+}
+.btn-outline:hover, .btn-outline:focus {
+  background: var(--primary-blue);
+  color: var(--white);
+  border-color: var(--primary-blue);
+}
+
+.section {
+  padding-top: 96px;
+  padding-bottom: 96px;
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+}
+@media (max-width: 600px) {
+  .section {
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+}
+
+.fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.2s forwards;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+  padding: 32px;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.card:hover, .card:focus {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
