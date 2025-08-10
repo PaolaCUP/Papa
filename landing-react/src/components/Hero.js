@@ -17,23 +17,39 @@ const Hero = () => {
       setError('Ingresa un email válido.');
       return;
     }
+    
+    // Verificar configuración de Supabase
+    console.log('Supabase URL:', process.env.REACT_APP_SUPABASE_URL);
+    console.log('Supabase Key exists:', !!process.env.REACT_APP_SUPABASE_ANON_KEY);
+    
     setLoading(true);
-    const { error } = await supabase
-      .from('emails')
-      .insert([{ email: value }]);
-    setLoading(false);
-    if (error) {
-      if (error.code === '23505') {
-        // Violación de unique: ya existe ese email
-        setSuccess(true);
-        setError('');
+    try {
+      const { data, error } = await supabase
+        .from('emails')
+        .insert([{ email: value }]);
+      
+      console.log('Supabase response:', { data, error });
+      
+      setLoading(false);
+      if (error) {
+        console.error('Supabase error details:', error);
+        if (error.code === '23505') {
+          // Violación de unique: ya existe ese email
+          setSuccess(true);
+          setError('');
+        } else {
+          setError(`Error: ${error.message || 'Intenta de nuevo.'}`);
+        }
       } else {
-        setError('Hubo un error. Intenta de nuevo.');
+        setSuccess(true);
+        setEmail('');
       }
-    } else {
-      setSuccess(true);
-      setEmail('');
+    } catch (err) {
+      console.error('Network or other error:', err);
+      setLoading(false);
+      setError('Error de conexión. Verifica tu internet.');
     }
+    
     // Limpiar mensajes después de 4s
     setTimeout(() => {
       setSuccess(false);
