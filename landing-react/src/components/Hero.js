@@ -9,17 +9,36 @@ const Hero = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
     setError('');
     setSuccess(false);
-    const { data, error } = await supabase.from('emails').insert([{ email }]);
+    const value = (email || '').trim();
+    const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    if (!isValid) {
+      setError('Ingresa un email válido.');
+      return;
+    }
+    setLoading(true);
+    const { error } = await supabase
+      .from('emails')
+      .insert([{ email: value }]);
     setLoading(false);
     if (error) {
-      setError('Hubo un error. Intenta de nuevo.');
+      if (error.code === '23505') {
+        // Violación de unique: ya existe ese email
+        setSuccess(true);
+        setError('');
+      } else {
+        setError('Hubo un error. Intenta de nuevo.');
+      }
     } else {
       setSuccess(true);
       setEmail('');
     }
+    // Limpiar mensajes después de 4s
+    setTimeout(() => {
+      setSuccess(false);
+      setError('');
+    }, 4000);
   };
   return (
     <section style={{
