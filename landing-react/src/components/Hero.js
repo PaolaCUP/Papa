@@ -6,6 +6,7 @@ const Hero = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,12 +37,14 @@ const Hero = () => {
         if (error.code === '23505') {
           // Violación de unique: ya existe ese email
           setSuccess(true);
+          setShowPopup(true);
           setError('');
         } else {
           setError(`Error: ${error.message || 'Intenta de nuevo.'}`);
         }
       } else {
         setSuccess(true);
+        setShowPopup(true);
         setEmail('');
       }
     } catch (err) {
@@ -54,6 +57,7 @@ const Hero = () => {
     setTimeout(() => {
       setSuccess(false);
       setError('');
+      setShowPopup(false);
     }, 4000);
   };
   return (
@@ -149,6 +153,74 @@ const Hero = () => {
           />
         </div>
       </div>
+
+      {/* Popup Modal */}
+      {showPopup && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          zIndex: 1000,
+          animation: 'fadeIn 0.3s ease-in-out'
+        }}>
+          <div style={{
+            backgroundColor: '#fff',
+            padding: '2rem',
+            borderRadius: '16px',
+            boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)',
+            textAlign: 'center',
+            maxWidth: '400px',
+            margin: '0 1rem',
+            animation: 'slideIn 0.3s ease-out',
+            border: '3px solid #EB6D1E'
+          }}>
+            <div style={{
+              fontSize: '3rem',
+              marginBottom: '1rem'
+            }}>🎉</div>
+            <h2 style={{
+              fontSize: '1.5rem',
+              fontWeight: '800',
+              color: '#1a1a1a',
+              marginBottom: '1rem',
+              lineHeight: '1.3'
+            }}>
+              Sabemos que eres un Papá Luchón,<br />
+              <span style={{ color: '#EB6D1E' }}>TU CORREO HA SIDO REGISTRADO</span>
+            </h2>
+            <p style={{
+              color: '#6b7280',
+              marginBottom: '1.5rem'
+            }}>
+              ¡Bienvenido a la comunidad de papás luchones!
+            </p>
+            <button
+              onClick={() => setShowPopup(false)}
+              style={{
+                backgroundColor: '#EB6D1E',
+                color: '#fff',
+                border: 'none',
+                padding: '12px 24px',
+                borderRadius: '8px',
+                fontSize: '1rem',
+                fontWeight: '600',
+                cursor: 'pointer',
+                transition: 'background-color 0.2s'
+              }}
+              onMouseOver={(e) => e.target.style.backgroundColor = '#d55a17'}
+              onMouseOut={(e) => e.target.style.backgroundColor = '#EB6D1E'}
+            >
+              ¡Genial!
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
